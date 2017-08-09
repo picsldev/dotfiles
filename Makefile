@@ -6,7 +6,7 @@ PROJECT    := $(shell basename $(PWD))
 help:
 #	@echo "  env         create a development environment using virtualenv"
 	@echo "  changelog   Crear un registro de cambios"
-	@echo "  deps        install dependencies using pip"
+	@echo "  deps        install dependencies"
 	@echo "  clean       remove unwanted files like .pyc's"
 	@echo "  doc         Genera documentación sobre el proyecto"
 	@echo "  graph       Genera varios gráficos del proyecto"
@@ -25,11 +25,7 @@ changelog:
 	git log --pretty --numstat --summary | git2cl > ChangeLog
 
 deps:
-	pip install pip-tools -U
-	pip-compile --output-file requirements/prod.txt requirements/prod.in
-	pip install -r requirements/prod.txt -U
-	pip-compile --output-file requirements/dev.txt requirements/dev.in
-	pip install -r requirements/dev.txt -U
+	sudo apt install stow
 
 doc:
 	pip install epydoc -U

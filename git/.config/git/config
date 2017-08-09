@@ -1,67 +1,67 @@
 [user]
-	name = Luis Cabrera Sauco
-	email = icorrecam@gmail.com
-	#signingkey = **Your GPG ID**
+    name = Luis Cabrera Sauco
+    email = icorrecam@gmail.com
+    #signingkey = **Your GPG ID**
 
 [branch "master"]
     remote = origin
     merge = refs/heads/master
 
-
-
 [core]
-	abbrev = 9
-	editor = vim
+    abbrev = 9
+    editor = vim
     pager = less -FRSX
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+
 [alias]
     graph = log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%C(blue)%x20(%ce)%x20%C(cyan)[gpg:%GK%x20%G?]%C(reset)%n%x20%s%n"
+    grafico = log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%C(blue)%x20(%ce)%x20%C(cyan)[gpg:%GK%x20%G?]%C(reset)%n%x20%s%n"
     stat = status -sb
     last = log -1 --stat
     unstage = reset HEAD --
     cached = diff --cached
-	a = add
-	b = branch --sort=-committerdate
-	bm = branch --merged
-	bnm = branch --no-merged
-	c = commit --verbose
-	ca = commit --verbose --amend
-	can = commit --verbose --amend --no-edit
-	co = checkout
-	d = diff
-	dn = diff --name-only
-	ds = diff --staged
-	du = count-objects --verbose --human-readable
-	f = fetch
-	h = help
-	hc = help config
-	l = log
-	lo = log --pretty=oneline
-	lof = log --pretty=fuller
-	lol = log --graph --pretty=oneline
-	m = merge
-	nuke = !git clean -fdx && git submodule foreach git clean -fdx
-	p = pull
-	pm = fetch origin master:master
-	ps = push
-	psf = push --force-with-lease
-	pr = pull-request
-	r = reset
-	rh = reset --hard
-	ru = reset @{u}
-	ruh = reset --hard @{u}
-	rb = rebase
-	s = status
-	sh = show
-	st = stash
-	sub = submodule
-	y = cherry-pick
+    a = add
+    b = branch --sort=-committerdate
+    bm = branch --merged
+    bnm = branch --no-merged
+    c = commit --verbose
+    ca = commit --verbose --amend
+    can = commit --verbose --amend --no-edit
+    co = checkout
+    d = diff
+    dn = diff --name-only
+    ds = diff --staged
+    du = count-objects --verbose --human-readable
+    f = fetch
+    h = help
+    hc = help config
+    l = log
+    lo = log --pretty=oneline
+    lof = log --pretty=fuller
+    lol = log --graph --pretty=oneline
+    m = merge
+    nuke = !git clean -fdx && git submodule foreach git clean -fdx
+    p = pull
+    pm = fetch origin master:master
+    ps = push
+    psf = push --force-with-lease
+    pr = pull-request
+    r = reset
+    rh = reset --hard
+    ru = reset @{u}
+    ruh = reset --hard @{u}
+    rb = rebase
+    s = status
+    sh = show
+    st = stash
+    sub = submodule
+    y = cherry-pick
 [am]
-	threeWay = true
+    threeWay = true
 [apply]
-	ignoreWhitespace = change
+    ignoreWhitespace = change
 [branch]
-	autoSetupRebase = local
+    autoSetupRebase = local
 
 [color]
     branch = always
@@ -95,41 +95,48 @@
     branch = magenta
 
 [credential]
-	helper = cache --timeout 30000 # seconds
+    helper = cache --timeout 30000 # seconds
 [diff]
-	tool = vimdiff
-	mnemonicPrefix = true
+    tool = vimdiff
+    mnemonicPrefix = true
 [difftool]
     prompt = false
 
 [format]
-	pretty = medium
+    pretty = medium
 [help]
-	autoCorrect = -1
+    autoCorrect = -1
 [log]
-	abbrevCommit = true
-	decorate = short
+    abbrevCommit = true
+    decorate = short
 [merge]
-	stat = true
-	tool = vimdiff
+    stat = true
+    tool = vimdiff
+    summary = true
 [pull]
-	ff = only
+    ff = only
 
 [push]
-	default = current
+    default = current
 [rebase]
-	stat = true
-	autoSquash = true
-	autoStash = true
+    stat = true
+    autoSquash = true
+    autoStash = true
 [rerere]
-	enabled = true
-	autoUpdate = true
+    enabled = true
+    autoUpdate = true
 [include]
-	path = ./local
+    path = ./local
 
 [url "git@github.com:"]
     insteadof = github:
 
 [gpg]
-	program = gpg
+    program = gpg
 
+[gui]
+    tabsize = 4
+[cola]
+    fontdiff = Monospace,10,-1,5,50,0,0,0,0,0
+    tabwidth = 4
+    textwidth = 80

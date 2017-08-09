@@ -1,0 +1,52 @@
+#!/bin/bash
+
+# Probandole
+#
+# /etc/profile (Para todos los usuarios)
+# ~/.bash_profile (Para un usuario concreto)
+# ~/.bash_login (Para un usuario concreto)
+# ~/.profile (Para un usuario concreto)
+#
+# Visto en: http://www.sysadmit.com/2016/06/linux-anadir-ruta-al-path.html
+#
+#############################################################################
+
+# Personal bin directory
+# ~~~~~~~~~~~~~~~~~~~~~~
+if [ -d "${HOME}/bin" ]; then
+    export PATH="${PATH}:/home/${HOME}/bin/"
+fi
+
+# set PATH so it includes user's private pip install if it exists
+if [ -d "${HOME}/.local-x64/bin" ] ; then
+    export PATH="${HOME}/.local-x64/bin:${PATH}"
+fi
+
+# set PATH so it includes user's private pip install if it exists
+if [ -d "${HOME}/.local/bin" ] ; then
+    export PATH="${HOME}/.local/bin:${PATH}"
+fi
+
+
+
+# VirtualEnvWrapper
+# ~~~~~~~~~~~~~~~~~
+if [ -f "/usr/share/virtualenvwrapper/virtualenvwrapper.sh" ]; then
+    # shellcheck disable=SC1091
+    source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+    export VIRTUALENV_PYTHON=/usr/bin/python3
+fi
+
+# Pandoc
+# ~~~~~~
+if [ -f /usr/bin/pandoc ]; then
+    eval "$(/usr/bin/pandoc --bash-completion)"
+fi
+
+# Ruby Manager
+# ~~~~~~~~~~~~
+# shellcheck source=$HOME/.rvm/scripts/rvm
+# shellcheck disable=SC1091
+[[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"
+
+# END

@@ -1,0 +1,8 @@
+# ~/.bash_logout.local: executed by .bash_logout.
+
+# when leaving the console clear the screen to increase privacy
+
+[ "$VIRTUAL_ENV" ] && deactivate
+killall fetchmail
+
+# FIN
