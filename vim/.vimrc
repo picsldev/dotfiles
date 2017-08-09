@@ -61,7 +61,7 @@ if has('gui_running')
 endif
 
 " appearance
-silent! colorscheme solarized
+silent! colorscheme slate
 set background=dark
 let g:gitgutter_override_sign_column_highlight = 0
 
