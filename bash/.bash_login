@@ -1,0 +1,4 @@
+# TEST
+echo -e "Ejecutando .bash_login"
+
+# END

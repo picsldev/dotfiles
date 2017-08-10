@@ -32,7 +32,7 @@ def _pythonrc_enable_readline():
 
     try:
         import readline
-        import rlcompleter
+        # import rlcompleter
     except ImportError:
         sys.stderr.write('readline unavailable - tab completion disabled.\n')
         return
@@ -75,7 +75,7 @@ def _pythonrc_enable_history():
                 readline.read_history_file(history_path)
             except IOError:
                 pass
-		
+
         readline.set_history_length(-1)
 
 
@@ -96,7 +96,7 @@ def _pythonrc_enable_pprint():
             s = pprint.pformat(o, *a, **kw)
             try:
                 sys.stdout.write(
-                    highlight(s, PythonLexer(), TerminalFormatter()))
+                        highlight(s, PythonLexer(), TerminalFormatter()))
             except UnicodeError:
                 sys.stdout.write(s)
                 sys.stdout.write('\n')
@@ -115,7 +115,7 @@ def _pythonrc_enable_pprint():
                 s = sys.stderr.getvalue()
                 try:
                     s = highlight(
-                        s, PythonTracebackLexer(), TerminalFormatter())
+                            s, PythonTracebackLexer(), TerminalFormatter())
                 except UnicodeError:
                     pass
                 old_stderr.write(s)
@@ -135,10 +135,12 @@ def _pythonrc_enable_pprint():
     import sys
     import types
 
-    help_types = [types.BuiltinFunctionType, types.BuiltinMethodType,
-                  types.FunctionType, types.MethodType, types.ModuleType,
+    help_types = [types.BuiltinFunctionType,
+                  types.BuiltinMethodType,
+                  types.FunctionType,
+                  types.MethodType,
+                  types.ModuleType,
                   type,
-                  # method_descriptor
                   type(list.remove)]
     if hasattr(types, 'UnboundMethodType'):
         help_types.append(types.UnboundMethodType)
@@ -150,10 +152,12 @@ def _pythonrc_enable_pprint():
         from struct import pack, unpack
         from termios import TIOCGWINSZ
         return unpack('HHHH',
-                      ioctl(fd, TIOCGWINSZ, pack('HHHH', 0, 0, 0, 0)))[1]
+                      ioctl(fd,
+                            TIOCGWINSZ,
+                            pack('HHHH', 0, 0, 0, 0)))[1]
 
-    def get_width():
-        """Returns terminal width"""
+        def get_width():
+            """Returns terminal width"""
 
         width = 0
         try:
@@ -242,10 +246,10 @@ def _pythonrc_fix_linecache():
                         if data is None:
                             return []
                         cache[filename] = (
-                            len(data), None,
-                            [line + '\n' for line in data.splitlines()],
-                            fullname
-                        )
+                                len(data), None,
+                                [line + '\n' for line in data.splitlines()],
+                                fullname
+                                )
                         return cache[filename][2]
 
             for dirname in sys.path:
@@ -336,6 +340,7 @@ def source(obj):
             os.environ['LESS'] = lessopts
         else:
             os.environ.pop('LESS', None)
+
 
 if __name__ == '__main__':
     __doc__ = None

@@ -1,0 +1,13 @@
+# TEST
+echo -e "Ejecutando .bash_aliases.local"
+
+# TODO: Pasarlo al .bashrc.local
+
+# EDITOR=/usr/bin/vim
+# VISUAL=/usr/bin/vim
+# FCEDIT=/usr/bin/vim
+# PAGER=/usr/bin/less
+
+# export EDITOR VISUAL FCEDIT PAGER
+
+# END

@@ -10,7 +10,7 @@
 [core]
     abbrev = 9
     editor = vim
-    pager = less -FRSX
+    pager = less -FRSX -x2 
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 
 [alias]
@@ -56,6 +56,17 @@
     st = stash
     sub = submodule
     y = cherry-pick
+	quick-amend = !VISUAL=/bin/true git commit --amend
+	hist = log --graph --date=short --all --date-order
+	st = status -sb
+	sync = !git pull --rebase && git push
+	wdiff = diff --color-words
+	merge-to = "!f() { local DEST=$1 ; shift ; local CURRENT=`git rev-parse --abbrev-ref HEAD` && git checkout "$DEST" && git merge "$CURRENT" $@ && git checkout "$CURRENT"; unset CURRENT; }; f"
+	ll = log --stat --abbrev-commit --graph --all --date-order
+	ml = log --pretty=medium --abbrev-commit --graph --decorate --all --date-order
+	sl = log --pretty=oneline --abbrev-commit --graph --decorate --all --date-order
+
+
 [am]
     threeWay = true
 [apply]
@@ -103,7 +114,8 @@
     prompt = false
 
 [format]
-    pretty = medium
+    # pretty = medium
+    pretty = %Cblue%h%Creset %ad %Cgreen%an%Creset %s%C(yellow)%d
 [help]
     autoCorrect = -1
 [log]

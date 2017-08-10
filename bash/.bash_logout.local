@@ -1,8 +1,10 @@
-# ~/.bash_logout.local: executed by .bash_logout.
+# TEST
+echo -e "Ejecutando .bash_logout.local"
 
-# when leaving the console clear the screen to increase privacy
+if [ -f "/usr/share/virtualenvwrapper/virtualenvwrapper.sh" ]; then
+    [ "$VIRTUAL_ENV" ] && deactivate
+fi
 
-[ "$VIRTUAL_ENV" ] && deactivate
-killall fetchmail
+# killall fetchmail
 
-# FIN
+# END
