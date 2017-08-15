@@ -11,6 +11,8 @@
 #
 #############################################################################
 
+export BROWSER="x-www-browser"
+
 # TEST
 echo -e "Ejecutando .bashrc.local"
 
